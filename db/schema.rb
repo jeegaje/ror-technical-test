@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_082946) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.integer "authors_id"
+    t.integer "author_id"
     t.string "title"
     t.string "description"
     t.string "book_language"
@@ -35,7 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_082946) do
     t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["authors_id"], name: "index_books_on_authors_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,5 +45,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_25_082946) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "books", "authors", column: "authors_id"
+  add_foreign_key "books", "authors"
 end

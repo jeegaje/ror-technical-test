@@ -1,0 +1,33 @@
+<h1>Books List</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Book Language</th>
+        <th>Publication Year</th>
+        <th>Publisher</th>
+        <th>ISBN</th>
+        <th>Page Count</th>
+        <th>Price</th>
+        <th>Availability</th>
+        <th>Rating</th>
+        <th>Author first_name</th>
+
+    </tr>
+    <% @books.each do |book| %>
+        <tr>
+            <td><%= book.title%></td>
+            <td><%= book.description%></td>
+            <td><%= book.book_language%></td>
+            <td><%= book.publication_year%></td>
+            <td><%= book.publisher%></td>
+            <td><%= book.isbn%></td>
+            <td><%= book.page_count%></td>
+            <td><%= book.price%></td>
+            <td><%= book.availability%></td>
+            <td><%= book.rating%></td>
+            <td><%= book.author.first_name%></td>
+
+        </tr>
+    <% end %>
+</table>

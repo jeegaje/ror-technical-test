@@ -1,0 +1,36 @@
+<h1>Create Book</h1>
+
+<%= form_with model: @book_post, url: "/books/create", method: :post do |form| %>
+  <%= form.label :title, "Title:" %> <br>
+  <%= form.text_field :title %> <br>
+  <%= form.label :description, "Description:" %> <br>
+  <%= form.text_field :description %> <br>
+  <%= form.label :book_language, "Book Language:" %> <br>
+  <%= form.text_field :book_language %> <br>
+  <%= form.label :publication_year, "Publication Year:" %> <br>
+  <%= form.number_field :publication_year %> <br> <br>
+  <%= form.label :publisher, "Publisher :" %> <br>
+  <%= form.text_field :publisher %> <br> <br>
+  <%= form.label :isbn, "ISBN:" %> <br>
+  <%= form.text_field :isbn %> <br> <br>
+  <%= form.label :page_count, "Page Count:" %> <br>
+  <%= form.number_field :page_count %> <br> <br>
+  <%= form.label :price, "Price:" %> <br>
+  <%= form.number_field :price %> <br> <br>
+  <%= form.label :availability, "Availability:" %> <br>
+  <%= form.text_field :availability %> <br> <br>
+  <%= form.label :rating, "Rating:" %> <br>
+  <%= form.number_field :rating %> <br> <br>
+  <%= form.label :author_id, "Author ID:" %> <br>
+  <%= form.number_field :author_id %> <br> <br>
+  <button><%= link_to "Back", "/books" %></button>
+  <%= form.submit "Submit" %>
+
+  <% if form.object.errors.any? %>
+    <div>
+      <% form.object.errors.full_messages.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

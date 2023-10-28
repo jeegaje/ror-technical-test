@@ -10,7 +10,7 @@
 <% if Current.user  %>
     <%= button_to "Log Out", logout_path, method: :delete %>
 <% else %>
-    <button><%= link_to "Sign Up", "/signup" %></button>
-    <button><%= link_to "Sign In", "/signin" %></button>
+    <button><%= link_to "Sign Up", "/accounts/sign_up" %></button>
+    <button><%= link_to "Sign In", "/accounts/sign_in" %></button>
 <% end %>
 <button><%= link_to "Books", "/books" %></button>

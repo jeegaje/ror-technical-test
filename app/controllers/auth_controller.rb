@@ -1,14 +1,21 @@
-class SignUpController < ApplicationController
-    def index
+class AuthController < ApplicationController
+    def signup_index
         @user = User.new
     end
-    def create
+    def signup_create
         @user = User.new(user_params)
         if @user.save 
             session[:user_id] = @user.id
             redirect_to root_path
         else
-            render :index, :status => 404
+            render :signup_index, :status => 404
+        end
+    end
+
+    def logout
+        if session[:user_id]
+            session[:user_id] = nil
+            redirect_to root_path
         end
     end
 

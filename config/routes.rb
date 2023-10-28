@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   root "main#index"
 
   # signup
-  get "signup" => "sign_up#index"
-  post "signup" => "sign_up#create"
+  get "signup" => "auth#signup_index"
+  post "signup" => "auth#signup_create"
+
+  # logout
+  delete "logout" => "auth#logout"
 
   get "books" => "book#index", as: :books
   get "books/create" => "book#new", as: :book_new

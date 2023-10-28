@@ -1,4 +1,6 @@
 class BookController < ApplicationController
+    before_action :is_current_user_exist
+
     def index
         @books = Book.all
     end

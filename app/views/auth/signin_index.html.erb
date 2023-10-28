@@ -1,0 +1,14 @@
+<h1>Sign In</h1>
+
+<%= form_with url: signin_path do |form| %>
+    <% if flash[:alert] %>
+        <p><%= flash[:alert] %></p>
+    <% end %>
+
+    <%= form.label :email, "Email" %> <br>
+    <%= form.text_field :email %> <br>
+    <%= form.label :password, "Password" %> <br>
+    <%= form.password_field :password %> <br>
+
+    <%= form.submit "Submit" %>
+<% end %>

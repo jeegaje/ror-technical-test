@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get "signup" => "auth#signup_index"
   post "signup" => "auth#signup_create"
 
+  # signin
+  get "signin" => "auth#signin_index"
+  post "signin" => "auth#signin_create"
+
   # logout
   delete "logout" => "auth#logout"
 

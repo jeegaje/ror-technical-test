@@ -1,4 +1,10 @@
 <h1>HOME PAGE</h1>
+<% if @user  %>
+    <p>Hello! Welcome Back <%= @user.username %></p>
+<% end %>
+
 
 <button><%= link_to "Sign Up", "/signup" %></button>
 <button>LOGIN</button>
+<button>Log Out</button>
+

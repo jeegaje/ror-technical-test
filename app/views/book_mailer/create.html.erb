@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Buku Berhasil Dibuat</title>
+</head>
+<body>
+    <h1>Selamat <%= params[:user].username %>, Buku Berhasil Dibuat!</h1>
+    <p>Terima kasih telah menambahkan buku baru ke dalam koleksi kami.</p>
+    
+    <!-- Tampilkan informasi buku yang baru saja dibuat -->
+    <h2>Detail Buku:</h2>
+    <ul>
+        <li><strong>Judul:</strong> <%= params[:book].title %></li>
+        <li><strong>Penulis:</strong> <%= params[:book].author.first_name %></li>
+        <li><strong>Deskripsi:</strong> <%= params[:book].description %></li>
+        <li><strong>Tahun Terbit:</strong> <%= params[:book].publication_year %></li>
+        <li><strong>Penerbit:</strong> <%= params[:book].publisher %></li>
+        <li><strong>ISBN:</strong> <%= params[:book].isbn %></li>
+        <li><strong>Jumlah Halaman:</strong> <%= params[:book].page_count %></li>
+        <li><strong>Harga:</strong> <%= params[:book].price %></li>
+        <li><strong>Ketersediaan:</strong> <%= params[:book].availability %></li>
+        <li><strong>Rating:</strong> <%= params[:book].rating %></li>
+    </ul>
+
+</body>
+</html>

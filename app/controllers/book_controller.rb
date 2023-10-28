@@ -4,12 +4,15 @@ class BookController < ApplicationController
     def index
         @books = Book.all
     end
+
     def new
         @book_post = Book.new
     end
+
     def edit
         @book_post = Book.find(params[:id])
     end
+
     def create
         @book_post =  Book.new({
             author: Author.find_by(id: params[:book][:author_id]),
@@ -26,6 +29,7 @@ class BookController < ApplicationController
         })
 
         if @book_post.save
+            BookMailer.with(user: Current.user, book: @book_post).create.deliver_later
             redirect_to :books
         else
             render 'new', status: :unprocessable_entity

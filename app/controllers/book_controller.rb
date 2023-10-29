@@ -3,7 +3,6 @@ class BookController < ApplicationController
 
     def index
         @books = Book.all
-        puts "heloooooo"
         
         @total_page = (Book.all.count / 10.to_f).ceil
 
@@ -48,7 +47,7 @@ class BookController < ApplicationController
 
         if @book_post.save
             if @notification.save
-                NotificationJob.perform_in(5.seconds)
+                NotificationJob.perform_in(5.seconds, current_account.email, @book_post.title, @book_post.publication_year, @book_post.author.first_name)
                 redirect_to :books
             end
         else

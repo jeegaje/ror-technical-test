@@ -1,12 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Buku Berhasil Dibuat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sukses Membuat Buku</title>
 </head>
-<body>
+<body style="background-color: #f0f0f0; padding: 20px;">
+    <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); max-width: 400px; margin: 0 auto;">
+        <h1 style="font-size: 24px; font-weight: bold; color: #333; margin-bottom: 20px;">Selamat! Anda Telah Sukses Membuat Buku</h1>
+        
+        <table style="width: 100%; background-color: #f4f4f4; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #ccc;">
+                    <th style="padding: 10px; font-size: 14px; font-weight: bold;">Judul Buku</th>
+                    <th style="padding: 10px; font-size: 14px; font-weight: bold;">Penulis</th>
+                    <th style="padding: 10px; font-size: 14px; font-weight: bold;">Tahun Terbit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background-color: #f0f0f0;">
+                    <td style="padding: 10px; font-size: 14px;"><%= params[:title] %></td>
+                    <td style="padding: 10px; font-size: 14px;"><%= params[:author_name] %></td>
+                    <td style="padding: 10px; font-size: 14px;"><%= params[:publish_year] %></td>
+                </tr>
+            </tbody>
+        </table>
 
-    <p>Terima kasih telah menambahkan buku baru ke dalam koleksi kami.</p>
-    
-
-
+        <p style="margin-top: 20px; font-size: 14px; color: #555;">Terima kasih telah menggunakan layanan kami untuk membuat buku Anda. Jika Anda memiliki pertanyaan lebih lanjut atau perlu bantuan, jangan ragu untuk menghubungi kami di <a href="mailto:info@example.com" style="color: #007bff; text-decoration: none;">info@example.com</a>.</p>
+    </div>
 </body>
 </html>

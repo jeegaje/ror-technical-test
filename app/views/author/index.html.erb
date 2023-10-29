@@ -55,16 +55,14 @@
                 <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Full Name</th>
                 <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Nationality</th>
                 <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Email</th>
-                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Birth Date</th>
             </tr>
         </thead>
         <tbody>
           <% @authors.each do |author| %>
             <tr class="hover:bg-blue-100">
-                <td class="px-6 py-4 whitespace-nowrap"><%= author.first_name%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= author.first_name + " " + author.last_name%></td>
                 <td class="px-6 py-4 whitespace-nowrap"><%= author.nationality%></td>
                 <td class="px-6 py-4 whitespace-nowrap"><%= author.email%></td>
-                <td class="px-6 py-4 whitespace-nowrap"><%= author.birth_date%></td>
             </tr>
           <% end %>
         </tbody>

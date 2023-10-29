@@ -17,21 +17,21 @@ authors_data = [
     last_name: "Docter",
     nationality: "American",
     email: "pete@example.com",
-    birth_date: DateTime.parse("2013-10-07 08:23:19.120")
+    
   },
   {
     first_name: "John",
     last_name: "Smith",
     nationality: "British",
     email: "john@example.com",
-    birth_date: DateTime.parse("2015-08-15 10:30:45.250")
+    
   },
   {
     first_name: "Emily",
     last_name: "Jones",
     nationality: "Canadian",
     email: "emily@example.com",
-    birth_date: DateTime.parse("2010-12-25 16:45:30.500")
+    
   }
 ]
 

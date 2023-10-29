@@ -21,8 +21,7 @@ class AuthorController < ApplicationController
             first_name: params[:author][:first_name],
             last_name: params[:author][:last_name],
             email: params[:author][:email],
-            nationality: params[:author][:nationality],
-            birth_date: params[:author][:birth_date],
+            nationality: params[:author][:nationality]
         })
         if @author_post.save
             redirect_to :authors

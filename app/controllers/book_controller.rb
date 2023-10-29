@@ -53,20 +53,10 @@ class BookController < ApplicationController
             availability: params[:book][:availability],
             rating: params[:book][:rating]
         })
-        @notification = Notification.new({
-            notification_type: 'email',
-            is_sent: 0,
-            metadata: {
-                email: current_account.email,
-                title: params[:book][:title],
-            }
-        })
 
         if @book_post.save
-            if @notification.save
                 NotificationJob.perform_in(5.seconds, current_account.email, @book_post.title, @book_post.publication_year, @book_post.author.first_name)
                 redirect_to :books
-            end
         else
             render 'new', status: :unprocessable_entity
         end

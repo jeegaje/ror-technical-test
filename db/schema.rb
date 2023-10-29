@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_143235) do
     t.string "last_name"
     t.string "nationality"
     t.string "email"
-    t.datetime "birth_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

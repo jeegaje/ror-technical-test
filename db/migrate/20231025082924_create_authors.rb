@@ -5,7 +5,6 @@ class CreateAuthors < ActiveRecord::Migration[7.1]
       t.string :last_name
       t.string :nationality
       t.string :email
-      t.datetime :birth_date
 
       t.timestamps
     end

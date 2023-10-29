@@ -142,12 +142,13 @@
               </div>
 
               <div class="sm:col-span-4">
-                <%= form.label :author_id, "Author ID", class: "block text-sm font-medium leading-6 text-gray-900" %>
+                <%= form.label :author_id, "Author", class: "block text-sm font-medium leading-6 text-gray-900" %>
                 <div class="mt-2">
                   <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                    <%= form.text_field :author_id, class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" %> <br>
+                    <%= form.select :author_id, @values, {}, class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" %>
                   </div>
                 </div>
+                <p class="mt-3 text-sm leading-6 text-gray-600">If Author not exist, make first.</p>
               </div>
 
             </div>

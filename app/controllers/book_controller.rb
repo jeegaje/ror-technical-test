@@ -16,10 +16,27 @@ class BookController < ApplicationController
 
     def new
         @book_post = Book.new
+        authors = Author.all
+        @values = []
+        authors.each do |author|
+            temp_value = []
+            temp_value.push(author.first_name)
+            temp_value.push(author.id)
+            @values.push(temp_value)
+        end
+
     end
 
     def edit
         @book_post = Book.find(params[:id])
+        authors = Author.all
+        @values = []
+        authors.each do |author|
+            temp_value = []
+            temp_value.push(author.first_name)
+            temp_value.push(author.id)
+            @values.push(temp_value)
+        end
     end
 
     def create

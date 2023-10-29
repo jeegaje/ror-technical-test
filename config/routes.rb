@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   post "authors/create" => "author#create"
 
 
-  get "api/books" => "api#index"
+  get "api/books" => "api#get_all_books"
+  get "api/books/:id" => "api#get_book_by_id"
   # Defines the root path route ("/")
   # root "posts#index"
 end

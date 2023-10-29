@@ -70,3 +70,5 @@ end
 gem 'sidekiq', '~> 7.1', '>= 7.1.6'
 
 gem "devise", "~> 4.9"
+
+gem "tailwindcss-rails", "~> 2.0"

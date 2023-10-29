@@ -67,6 +67,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "sidekiq", "~> 7.1"
+gem 'sidekiq', '~> 7.1', '>= 7.1.6'
 
 gem "devise", "~> 4.9"

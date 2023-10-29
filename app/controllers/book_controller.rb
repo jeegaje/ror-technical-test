@@ -1,4 +1,5 @@
 class BookController < ApplicationController
+    before_action :authenticate_account!
 
     def index
         @books = Book.all
@@ -26,10 +27,20 @@ class BookController < ApplicationController
             availability: params[:book][:availability],
             rating: params[:book][:rating]
         })
+        @notification = Notification.new({
+            notification_type: 'email',
+            is_sent: 0,
+            metadata: {
+                email: current_account.email,
+                title: params[:book][:title],
+            }
+        })
 
         if @book_post.save
-            BookMailer.with(user: Current.user, book: @book_post).create.deliver_later
-            redirect_to :books
+            if @notification.save
+                NotificationJob.perform_in(5.seconds)
+                redirect_to :books
+            end
         else
             render 'new', status: :unprocessable_entity
         end
@@ -49,7 +60,6 @@ class BookController < ApplicationController
             availability: params[:book][:availability],
             rating: params[:book][:rating]
         })
-         
             redirect_to :book_edit
         else
             render 'edit', status: :unprocessable_entity

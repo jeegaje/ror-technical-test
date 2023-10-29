@@ -8,9 +8,10 @@ class BookMailer < ApplicationMailer
   default from: 'bookyours@example.com'
 
   def create
-    params[:user]
-    params[:book]
+    # params[:user]
+    # params[:book]
 
-    mail to: params[:user].email, subject: "Success Create Books"
+    # mail to: params[:user].email, subject: "Success Create Books"
+    mail to: "anggajiyanfajar@gmail.com", subject: "Success Create Books"
   end
 end

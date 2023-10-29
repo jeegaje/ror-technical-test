@@ -88,7 +88,19 @@
             </tr>
           <% end %>
         </tbody>
-    </table>
+      </table>
+      <div class="mt-5">
+        <ul class="flex">
+          <span class="mr-2">Halaman :</span>
+          <% for page in 1..@total_page %>
+          <li class="mr-1">
+            <button><%= link_to "#{page}", "/books?page=#{page}", class: "bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 rounded" %></button>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </main>
+
+
 </div>

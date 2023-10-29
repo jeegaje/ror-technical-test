@@ -3,6 +3,16 @@ class BookController < ApplicationController
 
     def index
         @books = Book.all
+        puts "heloooooo"
+        
+        @total_page = (Book.all.count / 10.to_f).ceil
+
+        if params[:page].present?
+            offset = ((params[:page].to_i - 1) * 10)
+            @books = @books.offset(offset).limit(10)
+        else 
+            @books = @books.limit(10)
+        end
     end
 
     def new
@@ -60,7 +70,7 @@ class BookController < ApplicationController
             availability: params[:book][:availability],
             rating: params[:book][:rating]
         })
-            redirect_to :book_edit
+            redirect_to :book_edit, notice: "success update"
         else
             render 'edit', status: :unprocessable_entity
         end

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post "books/create" => "book#create"
   get "books/edit/:id" => "book#edit", as: :book_edit
   patch "books/edit/:id" => "book#update"
+
+
+  get "api/books" => "api#index"
   # Defines the root path route ("/")
   # root "posts#index"
 end

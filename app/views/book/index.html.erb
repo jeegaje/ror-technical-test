@@ -11,11 +11,8 @@
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
         <div class="flex items-center">
-          <div class="flex-shrink-0">
-            <img class="h-8 w-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          </div>
           <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-4">
+            <div class="flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
             </div>
@@ -51,48 +48,47 @@
 
   <header class="bg-white shadow">
     <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+      <h1 class="text-3xl font-bold tracking-tight text-gray-900">Daftar Buku</h1>
     </div>
   </header>
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <!-- Your content -->
+      <button class="bg-blue-600 text-white rounded-md px-3 py-2 text-sm font-medium mb-5"><a href="/books/create" >Tambah Buku</a></button>
+
+      <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
+        <thead class="bg-gray-800 text-white">
+            <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Title</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Description</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Book Language</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Publication Year</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Publisher</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">ISBN</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Page Count</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Price</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Availability</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Rating</th>
+                <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+            <tr class="hover:bg-blue-100">
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.title%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.description%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.book_language%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.publication_year%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.publisher%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.isbn%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.page_count%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.price%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.availability%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><%= book.rating%></td>
+                <td class="px-6 py-4 whitespace-nowrap"><button><%= link_to "Edit", "/books/edit/#{book.id}" %></button></td>
+            </tr>
+          <% end %>
+        </tbody>
+    </table>
     </div>
   </main>
 </div>
-
-
-<h1>Books List</h1>
-<button> <%= link_to "Add Book", "books/create"%> </button>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Book Language</th>
-        <th>Publication Year</th>
-        <th>Publisher</th>
-        <th>ISBN</th>
-        <th>Page Count</th>
-        <th>Price</th>
-        <th>Availability</th>
-        <th>Rating</th>
-        <th>Author first_name</th>
-
-    </tr>
-    <% @books.each do |book| %>
-        <tr>
-            <td><%= book.title%></td>
-            <td><%= book.description%></td>
-            <td><%= book.book_language%></td>
-            <td><%= book.publication_year%></td>
-            <td><%= book.publisher%></td>
-            <td><%= book.isbn%></td>
-            <td><%= book.page_count%></td>
-            <td><%= book.price%></td>
-            <td><%= book.availability%></td>
-            <td><%= book.rating%></td>
-            <td><button><%= link_to "Edit", "/books/edit/#{book.id}" %></button></td>
-
-        </tr>
-    <% end %>
-</table>

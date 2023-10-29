@@ -6,8 +6,8 @@
           <div class="hidden md:block">
             <div class="flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="books" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Books</a>
-              <a href="authors" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Authors</a>
+              <a href="/books" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Books</a>
+              <a href="/authors" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Authors</a>
 
             </div>
           </div>
@@ -47,7 +47,7 @@
   </header>
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-      <button class="bg-blue-600 text-white rounded-md px-3 py-2 text-sm font-medium mb-5"><a href="/books/create" >Tambah Author</a></button>
+      <button class="bg-blue-600 text-white rounded-md px-3 py-2 text-sm font-medium mb-5"><a href="/authors/create" >Tambah Author</a></button>
 
       <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
         <thead class="bg-gray-800 text-white">
@@ -74,7 +74,7 @@
           <span class="mr-2">Halaman :</span>
           <% for page in 1..@total_page_author %>
           <li class="mr-1">
-            <button><%= link_to "#{page}", "/books?page=#{page}", class: "bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 rounded" %></button>
+            <button><%= link_to "#{page}", "/authors?page=#{page}", class: "bg-blue-600 text-white hover:bg-blue-700 px-3 py-2 rounded" %></button>
           </li>
           <% end %>
         </ul>

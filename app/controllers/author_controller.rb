@@ -11,4 +11,23 @@ class AuthorController < ApplicationController
             @authors = @authors.limit(10)
         end
     end
+
+    def new
+        @author_post = Author.new
+    end
+
+    def create
+        @author_post =  Author.new({
+            first_name: params[:author][:first_name],
+            last_name: params[:author][:last_name],
+            email: params[:author][:email],
+            nationality: params[:author][:nationality],
+            birth_date: params[:author][:birth_date],
+        })
+        if @author_post.save
+            redirect_to :authors
+        else
+            render 'new', status: :unprocessable_entity
+        end
+    end
 end

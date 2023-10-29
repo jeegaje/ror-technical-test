@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   get "books/edit/:id" => "book#edit", as: :book_edit
   patch "books/edit/:id" => "book#update"
 
-  get "authors" => "author#index"
+  get "authors" => "author#index", as: :authors
+  get "authors/create" => "author#new"
+  post "authors/create" => "author#create"
 
 
   get "api/books" => "api#index"
